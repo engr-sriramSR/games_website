@@ -29,7 +29,7 @@ const refresh = async() =>{
             };
         };
     }catch{
-        alert(`Unable to conncet to the server at this time.Please try after some time.`);
+        //alert(`Unable to conncet to the server at this time.Please try after some time.`);
     };
 };
 //To handle the login action
