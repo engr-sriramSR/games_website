@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+    name="description"
+    content="Main page of this website."
+    />
+    <link rel="icon" href="icons/games_icon_32x32.ico">
+    <title>Games</title>
+    <script src="https://kit.fontawesome.com/0816e9224c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/game.css">
+    <script defer src="js/game.js"></script>
+</head>
+<body>
+    <div class="page" id="page">
+        <header class="header">
+            <div class="btn-logo">
+                <button class="menu" id="menu"><i class="fa-solid fa-bars"></i></button>
+                <a href="/games" class="logo">Games World</a>
+            </div>
+            <div class="search" id="search-div">
+                <form action=""  class="search-form">
+                    <input type="text" placeholder="search..." id="search" onkeyup="searchHandler(event)" autocomplete="off">
+                    <button type="submit" class="btn-search" onclick="searchHandler(event)"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="fav-per">
+                <div class="favorite" id="fav-btn">
+                    <h3><i class="fa-regular fa-heart"></i>My Games</h3>
+                </div>
+                <div class="person" id="my-info">
+                    <h3><i class="fa-regular fa-user"></i></h3>
+                </div>
+            </div>
+        </header>
+        <main class="content" id="game-container">
+            <p id="no-match">No games match your search.</p>
+        </main>
+    </div>
+    <nav class="navigation" id="nav-bar">
+        <ul class="sidemenu" id="sidemenu">
+            <li class="s-list-items active-side-tab" id="home"><i class="fa-solid fa-house"></i>Home</li>
+            <li class="s-list-items" id="new"><i class="fa-solid fa-explosion"></i>New</li>
+            <li class="s-list-items" id="single-player"><i class="fa-solid fa-person-snowboarding"></i>Single Player</li>
+            <li class="s-list-items" id="two-player"><i class="fa-solid fa-user-group"></i>Two Player</li>
+        </ul>
+        <a href="mailto:mailsriram238@gmail.com">Contact Us</a>
+    </nav>
+    <nav class="my-games-navigator" id="my-games-nav-bar">
+        <div class="my-games-header">
+            <h3 class="my-games-title">My games</h3>
+            <button class="my-games-close" id="my-games-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="my-games-subtitles">
+            <li id="my-games-fav" class="active-tab">Favorites</li>
+            <li id="my-games-like" class="">Liked</li>
+        </ul>
+        <div class="my-games-content">
+            <div class="fav-content active-content" id="fav-content">
+            </div>
+            <div class="likes-content" id="likes-content">
+            </div>
+        </div>
+    </nav>
+
+    <nav class="my-info-navigator" id="my-info-nav-bar-guest">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="my-info-guest">
+            <div class="my-info-header">
+                <div class="game-info">
+                    <h2>Games World</h2>
+                    <p>Enter the world of games.</p>
+                </div>
+            </div>
+            <div class="my-info-btn">
+                <button class="create-account">Create an account</button>
+                <button class="sign-in">Sign in</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-user">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="my-info-user">
+            <div class="my-info-header">
+                <h2 class="my-info-title" id="my-info-title">Hey User!</h2>
+            </div>
+            <div class="my-info-profile"></div>
+            <h2 class="profile-name" id="profile-name">Username</h2>
+            <h3 class="profile-email" id="profile-email">username@email.com</h3>
+            <div class="profile-titles">
+                <p id="my-profile"><i class="fa-solid fa-user"></i> My Profile</p>
+                <p id="edit-profile"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</p>
+                <p id="account-settings"><i class="fa-solid fa-gear"></i> Account Settings</p>
+                <p id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
+            </div>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-my-profile">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="my-profile-info">
+            <div class="my-profile-header">
+                <h2>My Profile</h2>
+            </div>
+            <div class="my-profile-content">
+                <div class="my-profile-subtitles">
+                    <p>Username</p>
+                    <h3 id="my-profile-username">My Username</h3>
+                </div>
+                <div class="my-profile-subtitles">
+                    <p>First Name</p>
+                    <h3 id="my-profile-firstname">My First Name</h3>
+                </div>
+                <div class="my-profile-subtitles">
+                    <p>Surname</p>
+                    <h3 id="my-profile-surname">My Surname</h3>
+                </div>
+                <div class="my-profile-subtitles">
+                    <p>Email</p>
+                    <h3 id="my-profile-email">User@email.com</h3>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-edit">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="my-info-edit">
+            <div class="my-edit-header">
+                <h2 class="my-info-title">Edit Your Profile</h2>
+            </div>
+            <div class="my-edit-content">
+                <button class="edit-form" id="edit-form"><i class="fa-solid fa-pen-to-square"></i></button>
+                <div class="my-edit-form">
+                    <div class="my-edit-email">
+                        <p>Email</p>
+                        <input type="text" value="My Email Address" id="edit-email" class="edit-email" name="name">
+                    </div>
+                    <div class="my-edit-email">
+                        <p>First Name</p>
+                        <input type="text" value="My Firstname" id="edit-firstname" class="edit-firstname" name="name">
+                    </div>
+                    <div class="my-edit-email">
+                        <p>Surname</p>
+                        <input type="text" value="My Surname" id="edit-surname" class="edit-surname" name="name">
+                    </div>
+                    <button id="edit-submit" class="edit-submit">Submit</button>
+                    <button id="edit-cancel" class="edit-cancel">Cancle</button>
+                </div>
+            </div>
+            <h2 class="edit-info" id="edit-info"></h2>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-settings">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="account-settings">
+            <div class="account-settings-header">
+                <h2 class="account-settings-title">Settings</h2>
+            </div>
+            <div class="account-settings-content">
+                <div class="account-settings-subtitles">
+                    <p>Change your password</p>
+                    <h3 id="change-password">Change password</h3>
+                </div>
+                <div class="account-settings-subtitles">
+                    <p>Delete your account</p>
+                    <h3 id="delete-account">Delete Account</h3>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-password-change">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="password-change">
+            <h2 class="change-password-title">Change Password</h2>
+            <input type="password" id="old-password" placeholder="Enter your old password" autofocus>
+            <input type="password" id="new-password" placeholder="Enter the new password">
+            <input type="password" id="confirm-password" placeholder="Enter the new password again">
+            <button id="confirm" class="confirm">Confirm Changes</button>
+            <h2 class="edit-info" id="password-change-info"></h2>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-delete-account">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="delete-account">
+            <h2 class="delete-account-title">Delete Account</h2>
+            <p>Are sure you want to delete your Games World account?</p>
+            <div class="delete-btn">
+                <button id="delete" class="delete">Delete</button>
+                <button id="delete-cancel" class="delete-cancel">Cancel</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-delete-account-re">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="delete-account-verification">
+            <h2 class="delete-account-title">Verification</h2>
+            <input type="text" id="re-username" placeholder="Username" autofocus>
+            <input type="password" id="re-password" placeholder="Password">
+            <button id="re-confirm" class="confirm">Confirm to Delete</button>
+            <h2 class="edit-info" id="reconfirm-info"></h2>
+        </div>
+    </nav>
+    <nav class="my-info-navigator" id="my-info-nav-bar-logout">
+        <button class="my-info-close" onclick="closeHandler(this)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="logout">
+            <h2 class="logout-title">Log Out</h2>
+            <p>Are sure you want to logout?</p>
+            <div class="logout-btn">
+                <button id="logout-yes" class="logout-yes">Yes</button>
+                <button id="logout-no" class="logout-no">No</button>
+            </div>
+        </div>       
+    </nav>
+</body>
+</html>

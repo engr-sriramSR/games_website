@@ -1,0 +1,968 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(44, 44, 44);
+    color: white;
+}
+/* ------------------------------------------ Main Elements ------------------------------------------ */
+.page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px 20px;
+    position: fixed;
+    width: 100%;
+    height: 120px;
+    background-color: #1c1e21;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    margin-top: 100px;
+/*     opacity: 0.5;
+    pointer-events: none; */
+}
+#no-match{
+    display: none;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+.template{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+/*     height: 475px; */
+    background-color: #1c1e21;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    overflow: hidden;
+    margin: 20px;
+}
+/* ------------------------------------------ Elements of Header ------------------------------------------ */
+.btn-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+}
+.menu{
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+/*     padding: 0px 20px; */
+    background-color: rgb(44, 44, 44);
+    color: white;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.logo{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*     background-color: aliceblue; */
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+/*     background-color: white; */
+    border-radius: 11px;
+    margin: 10px;
+}
+.search-form{
+    width: 600px;
+    height: 60px;
+    background-color: rgb(85, 83, 83);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+#search{
+    width: 500px;
+    height: 40px;
+    background-color: rgb(85, 83, 83);
+    color: white;
+    border-radius: 11px;
+    font-size: 20px;
+    flex-grow: 1;
+    padding: 0px 20px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+}
+#search::placeholder{
+    font-size: 20px;
+}
+.btn-search{
+/*     width: 40px;
+    height: 40px; */
+    font-size: 25px;
+    background-color: rgb(85, 83, 83);
+    color: rgb(156, 154, 154);
+/*     margin: 0; */
+    padding: 0px 20px;
+    border: 0;
+    display: inline;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.fav-per{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+.favorite{
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(98, 2, 18);
+    border-radius: 20px;
+}
+.person{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* ------------------------------------------ Elements of template ------------------------------------------ */
+.title{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    transition: transform .35s;
+}
+.title:hover{
+    transform: scale(0.95);
+}
+.thumbnail{
+    width: 100%;
+    transition: transform .35s;
+}
+.thumbnail:hover{
+    transform: scale(0.95);
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.options div{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.options button{
+    flex-grow: 1;
+    background-color: #1c1e21;
+    border: 0;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.35s;
+}
+.options button:hover{
+    transform: scale(1.2);
+}
+/* ------------------------------------------ Elements of comment section ------------------------------------------ */
+.comments-list{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(44, 44, 44);
+    margin: 10px 10px;
+    overflow: hidden;
+    transition: top 0.5s;
+    height:0;
+}
+.show{
+    height: auto;
+    transition: all .5s ease;
+}
+.comments-list li{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 10px;
+}
+.comments-list .line{
+    margin-top: 10px;
+    height: 2px;
+    background: whitesmoke;
+    width: 600px;
+}
+.comment-input input{   
+    color: rgba(0,0,0,.87);
+    border-bottom-color: rgba(0,0,0,.42);
+    font-size: 1.2rem;
+    font-weight: 400;
+    width: 100%;
+    height: 45px;
+    padding: 20px 16px 6px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 4px 4px 0 0;
+    background-color: #ececec;
+}
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 2px 10px 0;
+}
+.actions button{
+    background-color: #4e4caf; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#cancel{
+    background-color: #af4c4c;
+}
+.name{
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 500;
+}
+.message{
+    display: flex;
+    font-size: 25px;
+    width: 500px;
+    margin-left: 30px;
+    padding-bottom: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.datetime{
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 500;
+}
+.trash{
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    font-size: 15px;
+    border: 0;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+.trash:hover{
+    font-size: 17px;
+    color: #af4c4c;
+}
+/* ------------------------------------------ Navigation Elements ------------------------------------------ */
+.navigation{
+    background-color: #1c1e21;
+/* background-color: #ececec; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 120px;
+    width: 250px;
+    height: 100%;
+    left:-400px;
+    transition: left 0.5s;
+}
+.sidemenu{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    flex-basis: 80%;
+}
+.sidemenu button{
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.s-list-items{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    list-style: none;
+    padding: 10px;
+    font-weight: 600;
+    position: relative;
+    transition: 0.85s;
+}
+.s-list-items::after{
+    content: '';
+    width: 0;
+    height: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+.active-side-tab{
+    background-color: aliceblue;
+    color: black;
+}
+.sidemenu li.active-side-tab::after{
+    width: 7%;
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    flex-basis: 10%;
+    cursor: pointer;
+}
+/* ------------------------------------------------------ New Changes ------------------------------------------------------ */
+.my-games-navigator{
+/*     background-color: #1c1e21; */
+    background-color: #ececec;
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    width: 550px;
+    height: 100%;
+    right: -600px;
+    overflow-y: scroll;
+    transition: right 0.5s;
+}
+.my-games-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 40px;
+}
+.my-games-title{
+    font-size: 30px;
+    text-align: center;
+    flex-grow: 1;
+    color: black;
+}
+.my-games-close{
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #ececec;
+    color: black;
+    border: 0;
+    margin: 0;
+    padding-right: 20px;
+}
+.my-games-subtitles{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.my-games-subtitles li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    list-style: none;
+    padding-bottom: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+}
+.my-games-subtitles li::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 20%;
+    background-color: blue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+.my-games-subtitles li.active-tab::after{
+    width: 100%;
+}
+/* .my-games-navigator .line{
+    height: 1px;
+    background: black;
+} */
+.my-games-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    font-size: 18px;
+}
+.fav-content{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+.likes-content{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+.active-content{
+    display: flex;
+}
+.game-thumbnail{
+    width: 245px;
+    height: 245px;
+}
+/* ------------------------- my-info-navigator  -------------------------*/
+.my-info-navigator{
+    background-color: #ececec;
+    color: black;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    width: 550px;
+    height: 100%;
+    right: -600px;
+    transition: right 0.5s;
+    gap: 10px;
+}
+.my-info-close{
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding-right: 20px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+/* ------------------------- my-info-guest ------------------------- */
+.my-info-guest{
+    display: none;
+    flex-direction: column;
+/*     align-items: center;
+    justify-content: center; */
+    width: 100%;
+    height: 100%;
+}
+.my-info-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+/*     flex-basis: 40%; */
+/*     flex-grow: 1; */
+}
+.game-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+}
+.my-info-btn{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
+    flex-grow: 1;
+}
+.my-info-btn button{
+    background-color: #af4c4c;
+    border: none;
+    color: azure;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+/* ------------------------- my-info-user -------------------------*/
+.my-info-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/*     justify-content: center; */
+    width: 100%;
+    height: 100%;
+}
+.my-info-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.my-info-profile{
+    background: url(../img/gamer-profile.jpg);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    background-color: #af4c4c;
+    border-radius: 50%;
+}
+.profile-name{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+.profile-email{
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+.profile-titles{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 30px;
+    margin-top: 60px;
+}
+.profile-titles p{
+    cursor: pointer;
+}
+/* ------------------------- my-profile-info -------------------------*/
+.my-profile-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.my-profile-header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+.my-profile-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 20px;
+}
+/* ------------------------- my-info-edit -------------------------*/
+.my-info-edit{
+    display: flex;
+    flex-direction: column;
+/*     align-items: center; */
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+.my-edit-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding: 10px;
+    gap: 20px;
+}
+.edit-form{
+    display: flex;
+    align-items: flex-end;
+    font-size: 30px;
+    border: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.my-edit-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+.my-edit-form input[name=name]{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    margin: 0;
+    font-size: 25px;
+    background-color: #ececec;
+    outline: none;
+    pointer-events:none;
+}
+/* .my-edit-username{
+    font-size: 15px;
+} */
+.my-edit-email{
+    font-size: 15px;
+}
+.my-edit-form button{
+    border: none;
+    color: azure;
+    width: 200px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: none; /* display: inline-block */
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.edit-submit{
+    background-color: #0525b1;
+}
+.edit-cancel{
+    background-color: #8b0b02;
+}
+.edit-info{
+    text-align: center;
+}
+/* ------------------------- account-settings-------------------------*/
+.account-settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.account-settings-header{
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+.account-settings-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+.account-settings-subtitles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.account-settings-subtitles h3{
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+/* ------------------------- password-change -------------------------*/
+.password-change{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+.password-change input{
+    width: 400px;
+    height: 40px;
+    line-height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    margin: 0;
+}
+.password-change .confirm{
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: rgb(23, 65, 156);
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    color: white;
+}
+/* ------------------------- delete account-------------------------*/
+.delete-account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+.delete-account p{
+    font-size: 16px;
+    font-weight: 700;
+}
+.delete-account button{
+    border: none;
+    color: azure;
+    width: 200px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.delete{
+    background-color: #8b0b02;
+}
+.delete-cancel{
+    background-color: #0525b1;
+}
+
+.delete-account-verification{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+.delete-account-verification input{
+    width: 400px;
+    height: 40px;
+    line-height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    margin: 0;
+}
+.delete-account-verification .confirm{
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: rgb(68, 1, 1);
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    color: white;
+}
+/* ------------------------- logout -------------------------*/
+.logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+.logout p{
+    font-size: 16px;
+    font-weight: 700;
+}
+.logout button{
+    border: none;
+    color: azure;
+    width: 200px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.logout-yes{
+    background-color: #0525b1;
+}
+.logout-no{
+    background-color: #8b0b02;
+}
+
+/* ------------------------------------------------------ New Changes ------------------------------------------------------ */
+/* small  screen */
+@media only screen and (max-width: 600px){
+    .search{
+        display: none;
+    }
+    .btn-logo{
+        flex-grow: 1;
+    }
+    .menu{
+        font-size: 15px;
+        width: 30px;
+        height: 30px;
+    }
+    .logo{
+        font-size: 15px;
+        width: 100px;
+        height: 40px;
+    }
+    .fav-per{
+        flex-grow: 1;
+    }
+    .favorite{
+        width: 80px;
+        height: 35px;
+    }
+    .favorite h3{
+        font-size: 12px;
+    }
+    .person{
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+    .content{
+        flex-direction: column;
+        width: 100%;
+    }
+    .template{
+        width: 90%;
+    }
+    .title{
+        font-size: 30px;
+    }
+    .navigation{
+        width: 100px;
+    }
+    .sidemenu{
+        row-gap: 5px;
+    }
+    .s-list-items{
+        font-size: 12px;
+    }
+    .navigation a{
+        font-size: 12px;
+    }
+    .my-info-navigator{
+        width: 300px;
+    }
+    .my-games-navigator{
+        width: 300px;
+    }
+    .password-change input{
+        width: 250px;
+        font-size: 15px;
+    }
+    .password-change .confirm{
+        width: 150px;
+        font-size: 14px;
+    }
+    .delete-account-verification input{
+        width: 200px;
+        font-size: 14px;
+    }
+    .delete-account-verification .confirm{
+        width: 150px;
+        font-size: 14px;
+    }
+    .comment-input input{
+        font-size: 12px;
+        font-weight: 600;
+        height: 35px;
+    }
+    .actions button{
+        font-size: 14px;
+        height: 40px;
+    }
+    .name{
+        font-size: 12px;
+    }
+    .message{
+        font-size: 20px;
+    }
+    .datetime{
+        font-size: 8px;
+    }
+    .trash{
+        font-size: 10px;
+    }
+};

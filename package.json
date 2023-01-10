@@ -1,0 +1,20 @@
+{
+  "name": "gamesroute",
+  "version": "1.0.0",
+  "description": "games_website routing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install",
+    "dev": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
